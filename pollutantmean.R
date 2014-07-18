@@ -16,7 +16,16 @@
 pollutantmean <- function(directory, pollutant, id = 1:332) {
         
         files <- sprintf("%s/%03i.csv",directory,id)
-        dat <- data.frame()
+        data <- vector()
+        
+        for (i in seq_along(files)) {
+                dataset_temp <- read.csv(files[i])
+                data <- c(data, dataset_temp[[pollutant]])
+        }
+        mean_pollutant <- mean(data, na.rm=TRUE)
+        sprintf("The mean of all %s values is: %.3f",pollutant,mean_pollutant)
+}
+
         
         
         
