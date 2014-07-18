@@ -23,7 +23,7 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
         }
         
         poll_mean <- mean(dat[[pollutant]], na.rm=TRUE)
-        sprintf("The mean of all %s values is: %.2f",pollutant,poll_mean)
+        sprintf("The mean of all %s values is: %.3f",pollutant,poll_mean)
 }
         
         
