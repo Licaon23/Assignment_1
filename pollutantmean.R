@@ -22,8 +22,9 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
                 dat <- rbind(dat, read.csv(files[i]))
         }
         
-        
-        
+        poll_mean <- mean(dat[[pollutant]], na.rm=TRUE)
+        sprintf("The mean of all %s values is: %.2f",pollutant,poll_mean)
+}
         
         
                 
