@@ -15,4 +15,12 @@
 
 pollutantmean <- function(directory, pollutant, id = 1:332) {
         
+        files <- sprintf("%s/%03i.csv",directory,id)
+        dat <- data.frame()
+        
+        
+        
+        
+        
+                
         
