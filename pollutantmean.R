@@ -18,6 +18,10 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
         files <- sprintf("%s/%03i.csv",directory,id)
         dat <- data.frame()
         
+        for (i in seq_along(files)) {
+                dat <- rbind(dat, read.csv(files[i]))
+        }
+        
         
         
         
