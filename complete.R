@@ -11,18 +11,18 @@
 #               - id: vector d'enters amb els monitors a analitzar.
 
 
-complete <- function(directory, id=1:332) {
+complete <- function(directory, id=0) {
         
         files <- list.files(directory, full.names=TRUE)  #Vector amb direccions de tots els arxius
         n_obs=vector("integer") #Inicialitzar vector on guardar el nombre casos complets per cada monitor
-        
+        if ( id==0){id<-seq_along(files)}
+                
         for(i in id) {          
                 good <- complete.cases(read.csv(files[i]))     #Llegeix l'arxiu del monitor "i" i retorna un vector logic amb els registres complets
                 n_obs <- c(n_obs,sum(good))   #Suma el nombre de registres complets i n'emmagatzema el valor al vector inicialitzats
         }
         
         dataset<- data.frame("ID"=id,"nobs"=n_obs)   #Crea un dataframe amb el monitor i el nombre de casos complets.
-        print(dataset)
 }
                 
                 
